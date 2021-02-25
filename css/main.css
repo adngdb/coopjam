@@ -1,0 +1,23 @@
+html {
+  background-color: #c4c4c4;
+  text-align: center;
+}
+main {
+  position: relative;
+}
+#road {
+  background: white url("../img/road.png") 0 -667px repeat-y;
+  height: 1374px;
+  margin: 0 auto;
+  top: -667px;
+  width: 375px;
+}
+#speed {
+  color: white;
+  font: 10em "Open Sans", sans-serif;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 0 5px black;
+  top: 0;
+  width: 375px;
+}
