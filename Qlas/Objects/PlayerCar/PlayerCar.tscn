@@ -20,6 +20,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -200 )
 current = true
 
 [node name="ObstacleDetector" type="Area2D" parent="."]
