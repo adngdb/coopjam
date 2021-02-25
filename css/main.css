@@ -32,9 +32,7 @@ main {
   bottom: 20px;
   right: 80px;
 }
-#other-car {
+.obstacle {
   position: absolute;
-  top: 0;
-  left: 80px;
   transform: rotate(180deg);
 }

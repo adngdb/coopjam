@@ -19,7 +19,23 @@ let position = "right";
 const speedText = document.getElementById("speed");
 const road = document.getElementById("road");
 const playerCar = document.getElementById("player-car");
-const otherCar = document.getElementById("other-car");
+// const obstacles = Array.from(document.getElementsByClassName("obstacle"));
+const obstacles = [
+  { lane: "left", position: 0 },
+  { lane: "right", position: -450 },
+].map((obstacle) => {
+  const otherCar = document.createElement("img");
+  otherCar.src = "img/sprite_car_red.png";
+  if (obstacle.lane === "left") {
+    otherCar.style.left = "80px";
+  } else {
+    otherCar.style.right = "80px";
+  }
+  otherCar.style.top = `${obstacle.position}px`;
+  otherCar.className = "obstacle";
+  road.appendChild(otherCar);
+  return otherCar;
+});
 
 // On touch, increase speed.
 window.addEventListener(
@@ -56,31 +72,32 @@ function render() {
   const intSpeed = Math.round(speed);
   speedText.innerText = intSpeed;
   updatePositions(intSpeed);
-  if (hasCollisions(playerCar, otherCar)) {
-    console.log("collided!");
+  if (hasCollisions(playerCar, obstacles)) {
     speed = 0;
     position = togglePosition(position);
   }
-  updatePlayerPosition();
+  updatePlayerLane();
 }
 
 function updatePositions(intSpeed) {
   const backgroundPositionY = parseInt(road.style.backgroundPositionY) || 0;
   const updatedPosition = (backgroundPositionY + intSpeed) % SCREEN_HEIGHT;
   road.style.backgroundPositionY = `${updatedPosition}px`;
-  updateNodePosition(otherCar, intSpeed);
+  updateObstaclesPosition(obstacles, intSpeed);
 }
 
-function updateNodePosition(node, amount) {
-  const currentPosition = parseInt(node.style.top) || 0;
-  let updatedPosition = currentPosition + amount;
-  if (updatedPosition > SCREEN_HEIGHT) {
-    updatedPosition = -CAR_HEIGHT;
-  }
-  node.style.top = `${updatedPosition}px`;
+function updateObstaclesPosition(nodes, amount) {
+  nodes.map((node) => {
+    const currentPosition = parseInt(node.style.top) || 0;
+    let updatedPosition = currentPosition + amount;
+    if (updatedPosition > SCREEN_HEIGHT) {
+      updatedPosition = -CAR_HEIGHT;
+    }
+    node.style.top = `${updatedPosition}px`;
+  });
 }
 
-function updatePlayerPosition() {
+function updatePlayerLane() {
   let updatedPosition = 80; // "right".
   if (position === "left") {
     updatedPosition = SCREEN_WIDTH - CAR_WIDTH - 80;
@@ -96,10 +113,13 @@ function togglePosition(pos) {
   }
 }
 
-function hasCollisions(car, obstacle) {
+function hasCollisions(car, nodes) {
   const carRect = car.getBoundingClientRect();
-  const obstacleRect = obstacle.getBoundingClientRect();
-  return intersectRect(carRect, obstacleRect, LENIENCY);
+  const intersections = nodes.map((obstacle) => {
+    const obstacleRect = obstacle.getBoundingClientRect();
+    return intersectRect(carRect, obstacleRect, LENIENCY);
+  });
+  return intersections.some((i) => i);
 }
 
 function intersectRect(r1, r2, leniency) {
@@ -124,4 +144,6 @@ function step(timestamp) {
   window.requestAnimationFrame(step);
 }
 
-window.requestAnimationFrame(step);
+window.addEventListener("DOMContentLoaded", () => {
+  window.requestAnimationFrame(step);
+});
