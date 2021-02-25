@@ -11,11 +11,29 @@ var motion = Vector2(0.0, -1.0)
 
 func _get_input():
 	if Input.is_action_just_pressed("click"):
+		var mouse_x = get_global_mouse_position().x
+		if mouse_x < 0:
+			move_lane_left()
+		else:
+			move_lane_right()
 		speed += inc_speed
 	if Input.is_action_just_pressed("ui_left"):
 		move_lane_left()
+		speed += inc_speed
 	if Input.is_action_just_pressed("ui_right"):
 		move_lane_right()
+		speed += inc_speed
+
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if not event.is_pressed(): # Touch release
+			var viewport_width = get_viewport().get_visible_rect().size.x
+			var touch_x = event.get_position().x
+			if touch_x < (viewport_width / 2):
+				move_lane_left()
+			else:
+				move_lane_right()
+			speed += inc_speed
 
 
 func _physics_process(delta):
