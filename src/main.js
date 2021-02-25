@@ -13,6 +13,7 @@ const LENIENCY = 50;
 // Variables we need.
 let speed = 0;
 let previousTimestamp = null;
+let position = "right";
 
 // Nodes.
 const speedText = document.getElementById("speed");
@@ -38,7 +39,7 @@ window.addEventListener(
   (e) => {
     const dir = e.detail.dir;
     if (dir === "left" || dir === "right") {
-      updateNodeColumn(playerCar, dir);
+      position = dir;
     }
   },
   false
@@ -57,7 +58,10 @@ function render() {
   updatePositions(intSpeed);
   if (hasCollisions(playerCar, otherCar)) {
     console.log("collided!");
+    speed = 0;
+    position = togglePosition(position);
   }
+  updatePlayerPosition();
 }
 
 function updatePositions(intSpeed) {
@@ -76,14 +80,20 @@ function updateNodePosition(node, amount) {
   node.style.top = `${updatedPosition}px`;
 }
 
-function updateNodeColumn(node, column) {
-  let position;
-  if (column === "right") {
-    position = 80;
-  } else if (column === "left") {
-    position = SCREEN_WIDTH - CAR_WIDTH - 80;
+function updatePlayerPosition() {
+  let updatedPosition = 80; // "right".
+  if (position === "left") {
+    updatedPosition = SCREEN_WIDTH - CAR_WIDTH - 80;
   }
-  node.style.right = `${position}px`;
+  playerCar.style.right = `${updatedPosition}px`;
+}
+
+function togglePosition(pos) {
+  if (pos === "left") {
+    return "right";
+  } else {
+    return "left";
+  }
 }
 
 function hasCollisions(car, obstacle) {
