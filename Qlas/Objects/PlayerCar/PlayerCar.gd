@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
+export var max_speed := 1000.0
 export var inc_speed := 150.0
 export var dec_speed := 300.0
 
 var speed := 0.0
-var motion = Vector2(1.5, -1.0)
+var motion = Vector2(0.0, -1.0)
 
 
 func _get_input():
@@ -19,24 +20,23 @@ func _get_input():
 func _physics_process(delta):
 	_get_input()
 	
-	print(speed)
 	speed -= dec_speed * delta
-	speed = clamp(speed,0.0,1000.0)
+	speed = clamp(speed, 0.0, max_speed)
 	
-	pos_check()
 	move_and_slide(speed * motion)
+	pos_check()
 
 
 func pos_check():
-	global_position.x = clamp(global_position.x,-130.0,130.0)
-
+	global_position.x = clamp(global_position.x, -130.0, 130.0)
+	
 
 func move_lane_right():
-	motion.x = 1.5
+	motion.x = 1.0
 
 
 func move_lane_left():
-	motion.x = -1.5
+	motion.x = -1.0
 
 
 func _on_ObstacleDetector_body_entered(body):

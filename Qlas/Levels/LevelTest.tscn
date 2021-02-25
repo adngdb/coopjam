@@ -19,8 +19,20 @@ position = Vector2( 0, -1016 )
 [node name="RoadTile4" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0.625366, -1528 )
 
+[node name="RoadTile5" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -2040 )
+
+[node name="RoadTile6" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0.625366, -2552 )
+
+[node name="RoadTile7" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -3056 )
+
+[node name="RoadTile8" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0.625366, -3568 )
+
 [node name="PlayerCar" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.625366, -0.178711 )
+position = Vector2( 130, 0 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
