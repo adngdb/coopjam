@@ -3,9 +3,10 @@ const MAX_SPEED = 100;
 const SPEED_INCREMENT = 10;
 const SPEED_DECREASE_PER_SECOND = 20;
 
-const SCREEN_WIDTH = 375;
 const SCREEN_HEIGHT = 667;
+const SCREEN_WIDTH = 375;
 const CAR_HEIGHT = 196;
+const CAR_WIDTH = 90;
 
 // Variables we need.
 let speed = 0;
@@ -24,6 +25,18 @@ window.addEventListener(
     speed += SPEED_INCREMENT;
     if (speed > MAX_SPEED) {
       speed = MAX_SPEED;
+    }
+  },
+  false
+);
+
+// On swipe, change line.
+window.addEventListener(
+  "swiped",
+  (e) => {
+    const dir = e.detail.dir;
+    if (dir === "left" || dir === "right") {
+      updateNodeColumn(playerCar, dir);
     }
   },
   false
@@ -53,9 +66,19 @@ function updateNodePosition(node, amount) {
   const currentPosition = parseInt(node.style.top) || 0;
   let updatedPosition = currentPosition + amount;
   if (updatedPosition > SCREEN_HEIGHT) {
-      updatedPosition = -CAR_HEIGHT;
+    updatedPosition = -CAR_HEIGHT;
   }
   node.style.top = `${updatedPosition}px`;
+}
+
+function updateNodeColumn(node, column) {
+  let position;
+  if (column === "right") {
+    position = 80;
+  } else if (column === "left") {
+    position = SCREEN_WIDTH - CAR_WIDTH - 80;
+  }
+  node.style.right = `${position}px`;
 }
 
 function step(timestamp) {
