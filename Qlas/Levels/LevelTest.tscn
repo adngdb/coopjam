@@ -11,25 +11,25 @@
 [node name="RoadTile" parent="Road" instance=ExtResource( 2 )]
 
 [node name="RoadTile2" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0.625366, -512 )
+position = Vector2( 0, -832 )
 
 [node name="RoadTile3" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0, -1016 )
+position = Vector2( 0, -1664 )
 
 [node name="RoadTile4" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0.625366, -1528 )
+position = Vector2( 0, -2496 )
 
 [node name="RoadTile5" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0, -2040 )
+position = Vector2( 0, -3328 )
 
 [node name="RoadTile6" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0.625366, -2552 )
+position = Vector2( 0, -4168 )
 
 [node name="RoadTile7" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0, -3056 )
+position = Vector2( 0, -5000 )
 
 [node name="RoadTile8" parent="Road" instance=ExtResource( 2 )]
-position = Vector2( 0.625366, -3568 )
+position = Vector2( 0, -5840 )
 
 [node name="PlayerCar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 65, 0 )
@@ -38,3 +38,15 @@ position = Vector2( 65, 0 )
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 65, -736 )
+
+[node name="RedCar2" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 64, -1864 )
+
+[node name="RedCar3" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -2432 )
+
+[node name="RedCar4" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 56, -3944 )
+
+[node name="RedCar5" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -56, -5768 )
