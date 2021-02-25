@@ -10,6 +10,8 @@ let previousTimestamp = null;
 // Nodes.
 const speedText = document.getElementById("speed");
 const road = document.getElementById("road");
+const playerCar = document.getElementById("player-car");
+const otherCar = document.getElementById("other-car");
 
 // On touch, increase speed.
 window.addEventListener(
@@ -33,13 +35,20 @@ function decreaseSpeed(elapsedTime) {
 function render() {
   const intSpeed = Math.round(speed);
   speedText.innerText = intSpeed;
-  updateRoadPosition(intSpeed);
+  updatePositions(intSpeed);
 }
 
-function updateRoadPosition(intSpeed) {
+function updatePositions(intSpeed) {
   const backgroundPositionY = parseInt(road.style.backgroundPositionY) || 0;
   const updatedPosition = (backgroundPositionY + intSpeed) % 667;
   road.style.backgroundPositionY = `${updatedPosition}px`;
+  updateNodePosition(otherCar, intSpeed);
+}
+
+function updateNodePosition(node, amount) {
+  const currentPosition = parseInt(node.style.top) || 0;
+  const updatedPosition = (currentPosition + amount) % 667;
+  node.style.top = `${updatedPosition}px`;
 }
 
 function step(timestamp) {

@@ -3,6 +3,8 @@ html {
   text-align: center;
 }
 main {
+  height: 667px;
+  overflow: hidden;
   position: relative;
 }
 #road {
@@ -20,4 +22,15 @@ main {
   text-shadow: 0 0 5px black;
   top: 0;
   width: 375px;
+}
+#player-car {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+}
+#other-car {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  transform: rotate(180deg);
 }
