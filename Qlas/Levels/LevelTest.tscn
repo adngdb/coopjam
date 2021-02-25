@@ -32,9 +32,9 @@ position = Vector2( 0, -3056 )
 position = Vector2( 0.625366, -3568 )
 
 [node name="PlayerCar" parent="." instance=ExtResource( 1 )]
-position = Vector2( 130, 0 )
+position = Vector2( 65, 0 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 104, -736 )
+position = Vector2( 65, -736 )
