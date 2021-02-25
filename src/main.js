@@ -3,6 +3,10 @@ const MAX_SPEED = 100;
 const SPEED_INCREMENT = 10;
 const SPEED_DECREASE_PER_SECOND = 20;
 
+const SCREEN_WIDTH = 375;
+const SCREEN_HEIGHT = 667;
+const CAR_HEIGHT = 196;
+
 // Variables we need.
 let speed = 0;
 let previousTimestamp = null;
@@ -40,14 +44,17 @@ function render() {
 
 function updatePositions(intSpeed) {
   const backgroundPositionY = parseInt(road.style.backgroundPositionY) || 0;
-  const updatedPosition = (backgroundPositionY + intSpeed) % 667;
+  const updatedPosition = (backgroundPositionY + intSpeed) % SCREEN_HEIGHT;
   road.style.backgroundPositionY = `${updatedPosition}px`;
   updateNodePosition(otherCar, intSpeed);
 }
 
 function updateNodePosition(node, amount) {
   const currentPosition = parseInt(node.style.top) || 0;
-  const updatedPosition = (currentPosition + amount) % 667;
+  let updatedPosition = currentPosition + amount;
+  if (updatedPosition > SCREEN_HEIGHT) {
+      updatedPosition = -CAR_HEIGHT;
+  }
   node.style.top = `${updatedPosition}px`;
 }
 
@@ -61,7 +68,6 @@ function step(timestamp) {
   decreaseSpeed(elapsed);
   render();
 
-  // console.log(speed);
   window.requestAnimationFrame(step);
 }
 
