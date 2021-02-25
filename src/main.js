@@ -1,12 +1,14 @@
 // Constants.
 const MAX_SPEED = 100;
-const SPEED_INCREMENT = 10;
+const SPEED_INCREMENT = 5;
 const SPEED_DECREASE_PER_SECOND = 20;
 
 const SCREEN_HEIGHT = 667;
 const SCREEN_WIDTH = 375;
 const CAR_HEIGHT = 196;
 const CAR_WIDTH = 90;
+
+const LENIENCY = 50;
 
 // Variables we need.
 let speed = 0;
@@ -53,6 +55,9 @@ function render() {
   const intSpeed = Math.round(speed);
   speedText.innerText = intSpeed;
   updatePositions(intSpeed);
+  if (hasCollisions(playerCar, otherCar)) {
+    console.log("collided!");
+  }
 }
 
 function updatePositions(intSpeed) {
@@ -79,6 +84,21 @@ function updateNodeColumn(node, column) {
     position = SCREEN_WIDTH - CAR_WIDTH - 80;
   }
   node.style.right = `${position}px`;
+}
+
+function hasCollisions(car, obstacle) {
+  const carRect = car.getBoundingClientRect();
+  const obstacleRect = obstacle.getBoundingClientRect();
+  return intersectRect(carRect, obstacleRect, LENIENCY);
+}
+
+function intersectRect(r1, r2, leniency) {
+  return !(
+    r2.left + leniency > r1.right ||
+    r2.right - leniency < r1.left ||
+    r2.top + leniency > r1.bottom ||
+    r2.bottom - leniency < r1.top
+  );
 }
 
 function step(timestamp) {
