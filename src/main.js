@@ -24,6 +24,10 @@ function decreaseSpeed(elapsedTime) {
     }
 }
 
+function render() {
+    document.getElementById('speed').innerText = Math.round(speed);
+}
+
 function step(timestamp) {
     if (previousTimestamp === null) {
         previousTimestamp = timestamp;
@@ -32,6 +36,7 @@ function step(timestamp) {
     previousTimestamp = timestamp;
 
     decreaseSpeed(elapsed);
+    render();
 
     console.log(speed);
     window.requestAnimationFrame(step);
