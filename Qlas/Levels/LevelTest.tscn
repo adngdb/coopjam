@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Objects/PlayerCar/PlayerCar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/RoadTile/StartLine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/RoadTile/RoadTile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Obstacles/RedCar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/RoadTile/FinishLine.tscn" type="PackedScene" id=4]
 
 [node name="LevelTest" type="Node2D"]
 
@@ -31,9 +32,6 @@ position = Vector2( 0, -5000 )
 [node name="RoadTile8" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -5840 )
 
-[node name="PlayerCar" parent="." instance=ExtResource( 1 )]
-position = Vector2( 65, 0 )
-
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
@@ -49,4 +47,10 @@ position = Vector2( -64, -2432 )
 position = Vector2( 56, -3944 )
 
 [node name="RedCar5" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -56, -5768 )
+position = Vector2( -64, -5472 )
+
+[node name="StartLine" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -32 )
+
+[node name="FinishLine" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -5840 )

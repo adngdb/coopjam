@@ -32,7 +32,7 @@ func _physics_process(delta):
 
 func pos_check():
 	global_position.x = clamp(global_position.x, -in_lane_pos, in_lane_pos)
-	
+
 
 func move_lane_right():
 	motion.x = 1.0
@@ -46,3 +46,7 @@ func _on_ObstacleDetector_body_entered(body):
 	if body.is_in_group("obstacle"):
 		speed = 0.0
 		body.queue_free()
+
+
+func _on_FinishDetector_body_entered(body):
+	get_tree().change_scene("res://Levels/LevelTest.tscn")

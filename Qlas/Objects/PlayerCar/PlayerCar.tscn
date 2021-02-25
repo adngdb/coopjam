@@ -28,4 +28,12 @@ collision_mask = 2
 
 [node name="CollOD" type="CollisionShape2D" parent="ObstacleDetector"]
 shape = SubResource( 2 )
+
+[node name="FinishDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollFD" type="CollisionShape2D" parent="FinishDetector"]
+shape = SubResource( 2 )
 [connection signal="body_entered" from="ObstacleDetector" to="." method="_on_ObstacleDetector_body_entered"]
+[connection signal="body_entered" from="FinishDetector" to="." method="_on_FinishDetector_body_entered"]
