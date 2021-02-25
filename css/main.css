@@ -7,13 +7,14 @@ body {
 }
 main {
   height: 667px;
+  width: 375px;
   overflow: hidden;
   position: relative;
+  margin: auto;
 }
 #road {
   background: white url("../img/road.png") 0 -667px repeat-y;
   height: 1374px;
-  margin: 0 auto;
   top: -667px;
   width: 375px;
 }
@@ -28,12 +29,12 @@ main {
 }
 #player-car {
   position: absolute;
-  bottom: 0;
-  right: 100px;
+  bottom: 20px;
+  right: 80px;
 }
 #other-car {
   position: absolute;
   top: 0;
-  left: 100px;
+  left: 80px;
   transform: rotate(180deg);
 }
