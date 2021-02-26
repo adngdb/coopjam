@@ -6,8 +6,9 @@ export var dec_speed := 300.0
 export var in_lane_pos := 65.0
 export var shake_strength := 1.0
 
+var started := false
 var speed := 0.0
-var motion = Vector2(0.0, -1.0)
+var motion := Vector2(0.0, -1.0)
 
 onready var camera = $Camera2D
 onready var cameraTween = camera.get_node("CameraTween")
@@ -42,6 +43,9 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
+	if (!started):
+		return
+
 	_get_input()
 	speed -= dec_speed * delta
 	speed = clamp(speed, 0.0, max_speed)
@@ -52,13 +56,26 @@ func _physics_process(delta):
 
 	move_and_slide(speed * motion)
 	pos_check()
-	# Make sure camera is always centered (and does not follow the car on the x axis)
-	$Camera2D.offset.x = -global_position.x
+	fix_camera_x_position()
 
 
 func _ready():
-	$Engine.play()
+	fix_camera_x_position()
+
 	GameS.car = self
+	started = false
+
+	$LevelStartAnim.start($Camera2D)
+
+
+func start():
+	started = true
+	$Engine.play()
+
+
+func fix_camera_x_position():
+	# Make sure camera is always centered (and does not follow the car on the x axis)
+	$Camera2D.offset.x = -global_position.x
 
 
 func pos_check():
@@ -97,6 +114,10 @@ func _on_StartDetector_body_entered(body):
 func _on_FinishDetector_body_entered(body):
 	GameS.finish_level()
 	LevelS.change_scene_to("MenuScreen")
+
+
+func _on_LevelStartAnim_start_animation_end():
+	start()
 
 
 func screen_shake():
