@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/RoadTile/StartLine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/RoadTile/RoadTile.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Decoration/Tree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Decoration/Rock1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Decoration/Rock2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Props/Bush_02.png" type="Texture" id=8]
 
 [node name="3_Level" type="Node2D"]
 
@@ -92,7 +93,7 @@ position = Vector2( 70, -480 )
 position = Vector2( 64, -1864 )
 
 [node name="RedCar3" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 60, -2440 )
+position = Vector2( 60, -2552 )
 
 [node name="RedCar4" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( -68, -3096 )
@@ -101,40 +102,52 @@ position = Vector2( -68, -3096 )
 position = Vector2( -64, -5472 )
 
 [node name="RedCar6" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -66, -1152 )
+position = Vector2( -72, -1400 )
 
 [node name="RedCar7" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( -68, -3928 )
 
 [node name="RedCar8" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 68, -4456 )
+position = Vector2( 65, -4544 )
 
 [node name="RedCar9" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 56, -6000 )
 
 [node name="RedCar10" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -64, -6400 )
+position = Vector2( -64, -6480 )
 
 [node name="RedCar11" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 70, -6704 )
+position = Vector2( 60, -6936 )
 
 [node name="RedCar12" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -64, -7008 )
+position = Vector2( 64, -7144 )
 
 [node name="RedCar13" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 70, -7328 )
+position = Vector2( 64, -7392 )
 
 [node name="RedCar14" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -64, -7672 )
+position = Vector2( -64, -7920 )
 
 [node name="RedCar15" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 65, -8016 )
+position = Vector2( 56, -8760 )
 
 [node name="RedCar16" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 64, -8256 )
+position = Vector2( 56, -9008 )
 
 [node name="RedCar17" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 68, -8512 )
+
+[node name="RedCar18" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -72, -9680 )
+
+[node name="RedCar19" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -72, -10432 )
+
+[node name="RedCar20" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 64, -11328 )
+
+[node name="RedCar21" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -58, -12288 )
 
 [node name="StartLine" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
@@ -191,18 +204,102 @@ position = Vector2( 216, -3872 )
 
 [node name="Tree" parent="Decoration" instance=ExtResource( 5 )]
 position = Vector2( 320, -888 )
+rotation = 3.14159
 
 [node name="Tree2" parent="Decoration" instance=ExtResource( 5 )]
-position = Vector2( 368, -2160 )
+position = Vector2( 496, -2112 )
 
 [node name="Tree3" parent="Decoration" instance=ExtResource( 5 )]
 position = Vector2( 344, -3512 )
+rotation = -1.5708
 
 [node name="Tree4" parent="Decoration" instance=ExtResource( 5 )]
 position = Vector2( -544, -3200 )
 
 [node name="Tree5" parent="Decoration" instance=ExtResource( 5 )]
-position = Vector2( -416, -4904 )
+position = Vector2( -504, -4904 )
+rotation = 3.14159
 
 [node name="Tree6" parent="Decoration" instance=ExtResource( 5 )]
 position = Vector2( -528, -5704 )
+
+[node name="Tree7" parent="Decoration" instance=ExtResource( 5 )]
+position = Vector2( -448, -8416 )
+rotation = 1.5708
+
+[node name="Tree8" parent="Decoration" instance=ExtResource( 5 )]
+position = Vector2( 368, -15728 )
+rotation = 1.5708
+
+[node name="Tree9" parent="Decoration" instance=ExtResource( 5 )]
+position = Vector2( -392, -14648 )
+rotation = 1.5708
+
+[node name="Tree10" parent="Decoration" instance=ExtResource( 5 )]
+position = Vector2( 392, -13600 )
+rotation = 1.5708
+
+[node name="Bush_02" type="Sprite" parent="Decoration"]
+position = Vector2( 312, -9840 )
+texture = ExtResource( 8 )
+
+[node name="Bush_03" type="Sprite" parent="Decoration"]
+position = Vector2( 304, -5256 )
+texture = ExtResource( 8 )
+
+[node name="Bush_08" type="Sprite" parent="Decoration"]
+position = Vector2( -352, -1584 )
+texture = ExtResource( 8 )
+
+[node name="Bush_04" type="Sprite" parent="Decoration"]
+position = Vector2( -312, -11408 )
+texture = ExtResource( 8 )
+
+[node name="Bush_05" type="Sprite" parent="Decoration"]
+position = Vector2( -272, -11952 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="Bush_06" type="Sprite" parent="Decoration"]
+position = Vector2( 264, -12696 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="Bush_09" type="Sprite" parent="Decoration"]
+position = Vector2( -264, -12664 )
+texture = ExtResource( 8 )
+
+[node name="Bush_10" type="Sprite" parent="Decoration"]
+position = Vector2( -288, -13448 )
+rotation = 3.14159
+texture = ExtResource( 8 )
+
+[node name="Bush_11" type="Sprite" parent="Decoration"]
+position = Vector2( 288, -14304 )
+rotation = 3.14159
+texture = ExtResource( 8 )
+
+[node name="Bush_12" type="Sprite" parent="Decoration"]
+position = Vector2( 264, -14928 )
+rotation = 1.39626
+texture = ExtResource( 8 )
+
+[node name="Bush_13" type="Sprite" parent="Decoration"]
+position = Vector2( -288, -15376 )
+rotation = 0.523599
+texture = ExtResource( 8 )
+
+[node name="Bush_14" type="Sprite" parent="Decoration"]
+position = Vector2( -248, -15848 )
+rotation = 1.91986
+texture = ExtResource( 8 )
+
+[node name="Bush_15" type="Sprite" parent="Decoration"]
+position = Vector2( 268, -17352 )
+rotation = 1.91986
+texture = ExtResource( 8 )
+
+[node name="Bush_07" type="Sprite" parent="Decoration"]
+position = Vector2( -287.999, -16656 )
+rotation = 0.349066
+texture = ExtResource( 8 )
