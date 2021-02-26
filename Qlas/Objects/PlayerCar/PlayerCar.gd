@@ -87,5 +87,12 @@ func _on_ObstacleDetector_body_entered(body):
 		body.queue_free()
 
 
+func _on_StartDetector_body_entered(body):
+	#TODO: get the current level
+	# start_level(current_level)
+	pass
+
+
 func _on_FinishDetector_body_entered(body):
-	get_tree().change_scene("res://Levels/LevelTest.tscn")
+	LevelS.change_scene_to("MenuScreen")
+
