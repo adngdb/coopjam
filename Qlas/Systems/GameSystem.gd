@@ -10,6 +10,8 @@ var scores := [
 
 var current_level := 0
 var time_in_level := 0.0
+var chrono_on = false
+
 
 var car : KinematicBody2D = null
 var finish_line : KinematicBody2D = null
@@ -19,6 +21,7 @@ var start_line : KinematicBody2D = null
 func start_level():
 	current_level = LevelS.current_level
 	time_in_level = 0.0
+	chrono_on = true
 	
 	if (!scores[current_level]):
 		scores[current_level] = []
@@ -27,6 +30,7 @@ func start_level():
 # Store the time used to run to the finish line.
 func finish_level():
 	scores[current_level] = stepify(time_in_level, 0.01)
+	chrono_on = false
 
 
 # Return distance between car and finish line, in pixels.
@@ -46,4 +50,5 @@ func get_distance_between_lines():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	time_in_level += delta
+	if chrono_on:
+		time_in_level += delta
