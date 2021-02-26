@@ -1,9 +1,23 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var scores := []
+
+
+var current_level := 0
+var time_in_level := 0.0
+
+
+func start_level(level):
+	current_level = level
+	time_in_level = 0.0
+
+	if (!scores[current_level]):
+		scores[current_level] = []
+
+
+func finish_level():
+	scores[current_level].append(time_in_level)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,5 +26,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	time_in_level += delta
