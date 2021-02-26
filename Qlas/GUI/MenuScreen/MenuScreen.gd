@@ -1,9 +1,9 @@
 extends Control
 
 onready var score_boxes = [
-	$HBoxMargin/VBoxMenu/VBoxLevels/CLevel1/Score1,
-	$HBoxMargin/VBoxMenu/VBoxLevels/CLevel2/Score2,
-	$HBoxMargin/VBoxMenu/VBoxLevels/CLevel3/Score3,
+	$MarginContainer/VBoxMenu/VBoxLevels/CLevel1/Score1,
+	$MarginContainer/VBoxMenu/VBoxLevels/CLevel2/Score2,
+	$MarginContainer/VBoxMenu/VBoxLevels/CLevel3/Score3,
 ]
 
 
@@ -25,9 +25,9 @@ func _on_Button3_pressed():
 
 
 func display_scores():
-	score_boxes[0].text = "Score : " + str(GameS.scores[0])
-	score_boxes[1].text = "Score : " + str(GameS.scores[1])
-	score_boxes[2].text = "Score : " + str(GameS.scores[2])
+	score_boxes[0].text = str(GameS.scores[0])
+	score_boxes[1].text = str(GameS.scores[1])
+	score_boxes[2].text = str(GameS.scores[2])
 
 #func update_scores():
 #	var i = 0
