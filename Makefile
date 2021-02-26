@@ -8,3 +8,4 @@ release:
 		git push
 	git worktree remove deploying
 	git branch -d deploy
+.PHONY: release
