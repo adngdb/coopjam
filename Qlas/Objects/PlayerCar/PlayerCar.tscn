@@ -52,6 +52,10 @@ stream = ExtResource( 3 )
 [node name="Engine" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 pitch_scale = 0.4
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
 [connection signal="body_entered" from="StartDetector" to="." method="_on_StartDetector_body_entered"]
 [connection signal="body_entered" from="ObstacleDetector" to="." method="_on_ObstacleDetector_body_entered"]
 [connection signal="body_entered" from="FinishDetector" to="." method="_on_FinishDetector_body_entered"]

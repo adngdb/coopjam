@@ -58,7 +58,6 @@ func _vibrate_car():
 
 func _physics_process(delta):
 	_get_input()
-
 	speed -= dec_speed * delta
 	speed = clamp(speed, 0.0, max_speed)
 
@@ -92,6 +91,11 @@ func move_lane_left():
 func _on_ObstacleDetector_body_entered(body):
 	if body.is_in_group("obstacle"):
 		speed = 0.0
+		var explosion = body.get_node("Explosion")
+		body.get_node("sprite_car_red").set_visible(false)
+		explosion.set_visible(true)
+		explosion.play()
+		yield(explosion, "animation_finished")
 		body.queue_free()
 		$Crash.play()
 
