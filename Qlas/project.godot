@@ -19,6 +19,11 @@ config/name="Qlas"
 run/main_scene="res://Levels/LevelTest.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameS="*res://Systems/GameSystem.tscn"
+LevelS="*res://Systems/LevelSystem.tscn"
+
 [display]
 
 window/size/width=375
