@@ -1,0 +1,210 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GUI/menu_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Fonts/1980 portable.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="MenuScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.560784, 0.611765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxMargin" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxMargin"]
+margin_right = 50.0
+margin_bottom = 677.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="VBoxMenu" type="VBoxContainer" parent="HBoxMargin"]
+margin_left = 54.0
+margin_right = 321.0
+margin_bottom = 677.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxMargin/VBoxMenu"]
+margin_right = 267.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="VBoxLevels" type="VBoxContainer" parent="HBoxMargin/VBoxMenu"]
+margin_top = 54.0
+margin_right = 267.0
+margin_bottom = 562.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_right = 267.0
+margin_bottom = 189.0
+custom_fonts/font = SubResource( 1 )
+text = "Q. l'as du volant
+Feat.
+Son joint"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 193.0
+margin_right = 267.0
+margin_bottom = 223.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CLevel1" type="HBoxContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 227.0
+margin_right = 267.0
+margin_bottom = 284.0
+
+[node name="Button" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
+margin_right = 124.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Level 1"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
+margin_left = 128.0
+margin_right = 138.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
+margin_left = 142.0
+margin_top = 15.0
+margin_right = 267.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Score : 0"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 288.0
+margin_right = 267.0
+margin_bottom = 318.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="CLevel2" type="HBoxContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 322.0
+margin_right = 267.0
+margin_bottom = 379.0
+
+[node name="Button" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
+margin_right = 124.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Level 2"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
+margin_left = 128.0
+margin_right = 138.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
+margin_left = 142.0
+margin_top = 15.0
+margin_right = 267.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Score : 0"
+align = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 383.0
+margin_right = 267.0
+margin_bottom = 413.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="CLevel3" type="HBoxContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 417.0
+margin_right = 267.0
+margin_bottom = 474.0
+
+[node name="Button" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
+margin_right = 124.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Level 3"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
+margin_left = 128.0
+margin_right = 138.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
+margin_left = 142.0
+margin_top = 15.0
+margin_right = 267.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Score : 0"
+align = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxMargin/VBoxMenu/VBoxLevels"]
+margin_top = 478.0
+margin_right = 267.0
+margin_bottom = 508.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_vertical = 3
+
+[node name="VBoxCredit" type="VBoxContainer" parent="HBoxMargin/VBoxMenu"]
+margin_top = 566.0
+margin_right = 267.0
+margin_bottom = 653.0
+
+[node name="Credits" type="Label" parent="HBoxMargin/VBoxMenu/VBoxCredit"]
+margin_right = 267.0
+margin_bottom = 87.0
+theme = ExtResource( 1 )
+text = "Adrian Gaudebert
+James Keohane
+Mathieu Agopian"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxMargin/VBoxMenu"]
+margin_top = 657.0
+margin_right = 267.0
+margin_bottom = 677.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxMargin"]
+margin_left = 325.0
+margin_right = 375.0
+margin_bottom = 677.0
+rect_min_size = Vector2( 50, 0 )
