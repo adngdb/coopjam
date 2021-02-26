@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GUI/menu_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Fonts/1980 portable.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI/MenuScreen/MenuScreen.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -11,6 +12,7 @@ font_data = ExtResource( 2 )
 [node name="MenuScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,7 +84,7 @@ margin_top = 227.0
 margin_right = 267.0
 margin_bottom = 284.0
 
-[node name="Button" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
+[node name="Button1" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
 margin_right = 124.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
@@ -116,7 +118,7 @@ margin_top = 322.0
 margin_right = 267.0
 margin_bottom = 379.0
 
-[node name="Button" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
+[node name="Button2" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
 margin_right = 124.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
@@ -150,7 +152,7 @@ margin_top = 417.0
 margin_right = 267.0
 margin_bottom = 474.0
 
-[node name="Button" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
+[node name="Button3" type="Button" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
 margin_right = 124.0
 margin_bottom = 57.0
 size_flags_horizontal = 3
@@ -208,3 +210,6 @@ margin_left = 325.0
 margin_right = 375.0
 margin_bottom = 677.0
 rect_min_size = Vector2( 50, 0 )
+[connection signal="pressed" from="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3/Button3" to="." method="_on_Button3_pressed"]

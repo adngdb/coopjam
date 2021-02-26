@@ -1,5 +1,6 @@
 extends Node
 
+var current_level = -1
 
 var screen_dict = {
 	"StartScreen" : "res://GUI/StartScreen/StartScreen.tscn",
@@ -20,4 +21,4 @@ func change_scene_to(var screen : String):
 
 func change_scene_to_level(var idx : int):
 	get_tree().change_scene(levels[idx])
-	GameS.start_level(idx)
+	current_level = idx
