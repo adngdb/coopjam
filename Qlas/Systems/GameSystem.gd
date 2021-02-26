@@ -11,6 +11,9 @@ var scores := [
 var current_level := 0
 var time_in_level := 0.0
 
+var car : KinematicBody2D = null
+var finish_line : KinematicBody2D = null
+var start_line : KinematicBody2D = null
 
 # Initialize the timer when starting a level.
 func start_level():
@@ -27,8 +30,18 @@ func finish_level():
 
 
 # Return distance between car and finish line, in pixels.
-func get_distance_to_finish_line(car, finish_line):
-	return abs(car.distance_to(finish_line).y)
+func get_distance_to_finish_line():
+	if car == null || finish_line == null:
+		return -1.0
+	else:
+		return car.global_position.distance_to(finish_line.global_position)
+
+
+func get_distance_between_lines():
+	if start_line == null || finish_line == null:
+		return -1.0
+	else:
+		return start_line.global_position.distance_to(finish_line.global_position)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
