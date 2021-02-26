@@ -4,9 +4,13 @@ export var max_speed := 1000.0
 export var inc_speed := 150.0
 export var dec_speed := 300.0
 export var in_lane_pos := 65.0
+export var shake_strength := 1.0
 
 var speed := 0.0
 var motion = Vector2(0.0, -1.0)
+
+onready var camera = $Camera2D
+onready var cameraTween = camera.get_node("CameraTween")
 
 
 func _get_input():
@@ -73,6 +77,7 @@ func _on_ObstacleDetector_body_entered(body):
 	if body.is_in_group("obstacle"):
 		speed = 0.0
 		$Crash.play()
+		screen_shake()
 		var explosion = body.get_node("Explosion")
 		body.get_node("sprite_car_red").set_visible(false)
 		explosion.set_visible(true)
@@ -92,3 +97,21 @@ func _on_StartDetector_body_entered(body):
 func _on_FinishDetector_body_entered(body):
 	GameS.finish_level()
 	LevelS.change_scene_to("MenuScreen")
+
+
+func screen_shake():
+	cameraTween.interpolate_method(
+		self, # Object on which to apply the tween
+		"disturb_offset", # Property to animate
+		shake_strength, # Start
+		0, # End
+		1, # Duration of the tween in seconds
+		Tween.TRANS_SINE, # Easing transformation
+		Tween.EASE_IN_OUT, # When to apply the easing function
+		0) # Delay
+	cameraTween.start()
+
+
+func disturb_offset(strength: float):
+	camera.offset_h = rand_range(-strength, strength)
+	camera.offset_v = rand_range(-strength, strength)

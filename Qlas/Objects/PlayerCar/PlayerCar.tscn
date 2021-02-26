@@ -40,6 +40,8 @@ shape = SubResource( 2 )
 offset = Vector2( 0, -200 )
 current = true
 
+[node name="CameraTween" type="Tween" parent="Camera2D"]
+
 [node name="ObstacleDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
