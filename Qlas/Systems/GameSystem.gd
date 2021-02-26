@@ -1,7 +1,11 @@
 extends Node
 
 
-var scores := []
+var scores := [
+	0.0,
+	0.0,
+	0.0
+]
 
 
 var current_level := 0
@@ -9,17 +13,17 @@ var time_in_level := 0.0
 
 
 # Initialize the timer when starting a level.
-func start_level(level):
-	current_level = level
+func start_level():
+	current_level = LevelS.current_level
 	time_in_level = 0.0
-
+	
 	if (!scores[current_level]):
 		scores[current_level] = []
 
 
 # Store the time used to run to the finish line.
 func finish_level():
-	scores[current_level].append(time_in_level)
+	scores[current_level] = stepify(time_in_level, 0.01)
 
 
 # Return distance between car and finish line, in pixels.

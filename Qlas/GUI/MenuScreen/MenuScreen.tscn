@@ -97,7 +97,7 @@ margin_right = 138.0
 margin_bottom = 57.0
 rect_min_size = Vector2( 10, 0 )
 
-[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
+[node name="Score1" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel1"]
 margin_left = 142.0
 margin_top = 15.0
 margin_right = 267.0
@@ -131,7 +131,7 @@ margin_right = 138.0
 margin_bottom = 57.0
 rect_min_size = Vector2( 10, 0 )
 
-[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
+[node name="Score2" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel2"]
 margin_left = 142.0
 margin_top = 15.0
 margin_right = 267.0
@@ -165,7 +165,7 @@ margin_right = 138.0
 margin_bottom = 57.0
 rect_min_size = Vector2( 10, 0 )
 
-[node name="Label" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
+[node name="Score3" type="Label" parent="HBoxMargin/VBoxMenu/VBoxLevels/CLevel3"]
 margin_left = 142.0
 margin_top = 15.0
 margin_right = 267.0

@@ -88,11 +88,11 @@ func _on_ObstacleDetector_body_entered(body):
 
 
 func _on_StartDetector_body_entered(body):
-	#TODO: get the current level
-	# start_level(current_level)
-	pass
+	GameS.start_level()
 
 
 func _on_FinishDetector_body_entered(body):
+	GameS.finish_level()
 	LevelS.change_scene_to("MenuScreen")
+
 
