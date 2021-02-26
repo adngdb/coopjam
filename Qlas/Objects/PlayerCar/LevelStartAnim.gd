@@ -7,8 +7,8 @@ func start(camera):
 	$Tween.interpolate_property(
 		camera,
 		"offset:y",
-		600,
-		0,
+		camera.offset.y + 600,
+		camera.offset.y,
 		2,
 		Tween.TRANS_SINE,
 		Tween.EASE_IN_OUT,

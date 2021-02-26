@@ -6,8 +6,8 @@ export var dec_speed := 300.0
 export var in_lane_pos := 65.0
 export var shake_strength := 1.0
 
-var started := false
-var speed := 0.0
+var running := false
+export var speed := 0.0
 var motion := Vector2(0.0, -1.0)
 
 onready var camera = $Camera2D
@@ -43,12 +43,10 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
-	if (!started):
-		return
-
-	_get_input()
-	speed -= dec_speed * delta
-	speed = clamp(speed, 0.0, max_speed)
+	if (running):
+		_get_input()
+		speed -= dec_speed * delta
+		speed = clamp(speed, 0.0, max_speed)
 
 	# Update pitch of engine sound based on speed.
 	var pitch = (speed * 1.6 / max_speed) + 0.4
@@ -63,14 +61,36 @@ func _ready():
 	fix_camera_x_position()
 
 	GameS.car = self
-	started = false
+	running = false
 
 	$LevelStartAnim.start($Camera2D)
 
 
-func start():
-	started = true
+func start_race():
+	running = true
 	$Engine.play()
+	GameS.start_level()
+
+
+func end_race():
+	running = false
+	decrease_engine_sound()
+	$LevelEndAnim.start(self)
+	GameS.finish_level()
+
+
+func decrease_engine_sound():
+	$EngineStopTween.interpolate_property(
+		$Engine,
+		"pitch_scale",
+		$Engine.pitch_scale,
+		0.0,
+		1.0,
+		Tween.TRANS_SINE,
+		Tween.EASE_IN_OUT,
+		0
+	)
+	$EngineStopTween.start()
 
 
 func fix_camera_x_position():
@@ -90,6 +110,10 @@ func move_lane_left():
 	motion.x = -1.0
 
 
+func _on_LevelStartAnim_start_animation_end():
+	start_race()
+
+
 func _on_ObstacleDetector_body_entered(body):
 	if body.is_in_group("obstacle"):
 		speed = 0.0
@@ -107,17 +131,16 @@ func _on_ObstacleDetector_body_entered(body):
 		body.queue_free()
 
 
-func _on_StartDetector_body_entered(body):
-	GameS.start_level()
-
-
 func _on_FinishDetector_body_entered(body):
-	GameS.finish_level()
+	end_race()
+
+
+func _on_LevelEndAnim_end_animation_finished():
 	LevelS.change_scene_to("MenuScreen")
 
 
-func _on_LevelStartAnim_start_animation_end():
-	start()
+func _on_EngineStopTween_tween_all_completed():
+	$Engine.stop()
 
 
 func screen_shake():

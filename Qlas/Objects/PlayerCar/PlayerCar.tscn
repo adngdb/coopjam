@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Sprites/Cars/sprite_car_blue.png" type="Texture" id=1]
 [ext_resource path="res://Objects/PlayerCar/PlayerCar.gd" type="Script" id=2]
@@ -8,23 +8,19 @@
 [ext_resource path="res://GUI/UIComponents/DistanceBar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/PlayerCar/LevelStartAnim.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sounds/engine-start.ogg" type="AudioStream" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25, 75 )
+[ext_resource path="res://Objects/PlayerCar/LevelEndAnim.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Sounds/braking.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/victory.wav" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23.0169, 63.7989 )
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 75 )
+
 [node name="PlayerCar" type="KinematicBody2D"]
 collision_mask = 0
 script = ExtResource( 2 )
-
-[node name="StartDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollSD" type="CollisionShape2D" parent="StartDetector"]
-shape = SubResource( 1 )
 
 [node name="sprite_car_blue" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -77,9 +73,25 @@ script = ExtResource( 7 )
 
 [node name="EngineStart" type="AudioStreamPlayer" parent="LevelStartAnim"]
 stream = ExtResource( 8 )
-[connection signal="body_entered" from="StartDetector" to="." method="_on_StartDetector_body_entered"]
+
+[node name="LevelEndAnim" type="Node" parent="."]
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="LevelEndAnim"]
+
+[node name="Braking" type="AudioStreamPlayer" parent="LevelEndAnim"]
+stream = ExtResource( 10 )
+
+[node name="Victory" type="AudioStreamPlayer" parent="LevelEndAnim"]
+stream = ExtResource( 11 )
+
+[node name="EngineStopTween" type="Tween" parent="."]
 [connection signal="body_entered" from="ObstacleDetector" to="." method="_on_ObstacleDetector_body_entered"]
 [connection signal="body_entered" from="FinishDetector" to="." method="_on_FinishDetector_body_entered"]
 [connection signal="start_animation_end" from="LevelStartAnim" to="." method="_on_LevelStartAnim_start_animation_end"]
 [connection signal="tween_all_completed" from="LevelStartAnim/Tween" to="LevelStartAnim" method="_on_Tween_tween_all_completed"]
 [connection signal="finished" from="LevelStartAnim/EngineStart" to="LevelStartAnim" method="_on_EngineStart_finished"]
+[connection signal="end_animation_finished" from="LevelEndAnim" to="." method="_on_LevelEndAnim_end_animation_finished"]
+[connection signal="finished" from="LevelEndAnim/Braking" to="LevelEndAnim" method="_on_Braking_finished"]
+[connection signal="finished" from="LevelEndAnim/Victory" to="LevelEndAnim" method="_on_Victory_finished"]
+[connection signal="tween_all_completed" from="EngineStopTween" to="." method="_on_EngineStopTween_tween_all_completed"]
