@@ -14,6 +14,9 @@
 
 [node name="RoadTile" parent="Road" instance=ExtResource( 2 )]
 
+[node name="RoadTile9" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, 832 )
+
 [node name="RoadTile2" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -832 )
 

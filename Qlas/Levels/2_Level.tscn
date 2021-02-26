@@ -8,11 +8,14 @@
 [ext_resource path="res://Objects/Decoration/Rock1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Decoration/Rock2.tscn" type="PackedScene" id=7]
 
-[node name="LevelTest" type="Node2D"]
+[node name="2_level" type="Node2D"]
 
 [node name="Road" type="Node2D" parent="."]
 
 [node name="RoadTile" parent="Road" instance=ExtResource( 2 )]
+
+[node name="RoadTile9" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, 832 )
 
 [node name="RoadTile2" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -832 )
@@ -35,6 +38,24 @@ position = Vector2( 0, -5000 )
 [node name="RoadTile8" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -5840 )
 
+[node name="RoadTile10" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -6672 )
+
+[node name="RoadTile11" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -7504 )
+
+[node name="RoadTile12" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -8336 )
+
+[node name="RoadTile13" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -9168 )
+
+[node name="RoadTile14" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -10000 )
+
+[node name="RoadTile15" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -10832 )
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
@@ -52,6 +73,39 @@ position = Vector2( 56, -3944 )
 [node name="RedCar5" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( -64, -5472 )
 
+[node name="RedCar7" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -5760 )
+
+[node name="RedCar8" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -6072 )
+
+[node name="RedCar9" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 72, -6688 )
+
+[node name="RedCar10" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 65, -6984 )
+
+[node name="RedCar11" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -72, -7432 )
+
+[node name="RedCar12" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 72, -8000 )
+
+[node name="RedCar13" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 72, -8264 )
+
+[node name="RedCar14" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 72, -8512 )
+
+[node name="RedCar15" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 72, -8760 )
+
+[node name="RedCar16" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -9360 )
+
+[node name="RedCar17" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 72, -10368 )
+
 [node name="RedCar6" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( -64, -184 )
 
@@ -59,7 +113,7 @@ position = Vector2( -64, -184 )
 position = Vector2( 0, -32 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, -5840 )
+position = Vector2( 0, -10664 )
 
 [node name="Decoration" type="Node" parent="."]
 
@@ -83,18 +137,6 @@ position = Vector2( 208, -4264 )
 
 [node name="Rock8" parent="Decoration" instance=ExtResource( 6 )]
 position = Vector2( -232, -4056 )
-
-[node name="Rock9" parent="Decoration" instance=ExtResource( 6 )]
-position = Vector2( -136, -6008 )
-
-[node name="Rock10" parent="Decoration" instance=ExtResource( 6 )]
-position = Vector2( 224, -6088 )
-
-[node name="Rock11" parent="Decoration" instance=ExtResource( 7 )]
-position = Vector2( 160, -5968 )
-
-[node name="Rock12" parent="Decoration" instance=ExtResource( 7 )]
-position = Vector2( -96, -5968 )
 
 [node name="Rock13" parent="Decoration" instance=ExtResource( 7 )]
 position = Vector2( 184, -4352 )

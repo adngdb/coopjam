@@ -8,11 +8,14 @@
 [ext_resource path="res://Objects/Decoration/Rock1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Decoration/Rock2.tscn" type="PackedScene" id=7]
 
-[node name="LevelTest" type="Node2D"]
+[node name="3_Level" type="Node2D"]
 
 [node name="Road" type="Node2D" parent="."]
 
 [node name="RoadTile" parent="Road" instance=ExtResource( 2 )]
+
+[node name="RoadTile9" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, 832 )
 
 [node name="RoadTile2" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -832 )
@@ -34,6 +37,51 @@ position = Vector2( 0, -5000 )
 
 [node name="RoadTile8" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -5840 )
+
+[node name="RoadTile10" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -6672 )
+
+[node name="RoadTile18" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -7504 )
+
+[node name="RoadTile11" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -8336 )
+
+[node name="RoadTile12" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -9168 )
+
+[node name="RoadTile13" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -10000 )
+
+[node name="RoadTile14" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -10832 )
+
+[node name="RoadTile15" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -11672 )
+
+[node name="RoadTile16" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -12504 )
+
+[node name="RoadTile17" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -13344 )
+
+[node name="RoadTile19" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -14176 )
+
+[node name="RoadTile20" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -15008 )
+
+[node name="RoadTile21" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -15840 )
+
+[node name="RoadTile22" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -16664 )
+
+[node name="RoadTile23" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -17496 )
+
+[node name="RoadTile24" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -18328 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -61,11 +109,38 @@ position = Vector2( -68, -3928 )
 [node name="RedCar8" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 68, -4456 )
 
+[node name="RedCar9" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 56, -6000 )
+
+[node name="RedCar10" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -6400 )
+
+[node name="RedCar11" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 70, -6704 )
+
+[node name="RedCar12" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -7008 )
+
+[node name="RedCar13" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 70, -7328 )
+
+[node name="RedCar14" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -64, -7672 )
+
+[node name="RedCar15" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 65, -8016 )
+
+[node name="RedCar16" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 64, -8256 )
+
+[node name="RedCar17" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 68, -8512 )
+
 [node name="StartLine" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, -5840 )
+position = Vector2( 0, -18072 )
 
 [node name="Decoration" type="Node" parent="."]
 
@@ -100,13 +175,16 @@ position = Vector2( -216, -5312 )
 position = Vector2( 200, -5768 )
 
 [node name="Rock12" parent="Decoration" instance=ExtResource( 6 )]
-position = Vector2( -152, -6048 )
+position = Vector2( -176, -6085.2 )
+rotation = -1.5708
 
 [node name="Rock13" parent="Decoration" instance=ExtResource( 6 )]
-position = Vector2( 160, -6128 )
+position = Vector2( 184, -6136 )
+rotation = 1.5708
 
 [node name="Rock14" parent="Decoration" instance=ExtResource( 7 )]
-position = Vector2( 136, -6090.8 )
+position = Vector2( 152, -6088 )
+rotation = 1.5708
 
 [node name="Rock8" parent="Decoration" instance=ExtResource( 6 )]
 position = Vector2( 216, -3872 )
