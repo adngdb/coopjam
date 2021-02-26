@@ -30,6 +30,8 @@ SaveS="*res://Systems/SaveSystem.gd"
 window/size/width=375
 window/size/height=667
 window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
