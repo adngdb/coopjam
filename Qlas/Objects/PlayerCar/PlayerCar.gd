@@ -26,6 +26,7 @@ func _get_input():
 		move_lane_right()
 		speed += inc_speed
 
+
 func _unhandled_input(event):
 	if event is InputEventScreenTouch:
 		if not event.is_pressed(): # Touch release
@@ -36,6 +37,7 @@ func _unhandled_input(event):
 			else:
 				move_lane_right()
 			speed += inc_speed
+
 
 func _vibrate_car():
 	var randX = rand_range(-vibrate_strength, vibrate_strength)
@@ -53,12 +55,17 @@ func _vibrate_car():
 		0) # Delay
 	TweenNode.start()
 
+
 func _physics_process(delta):
 	_get_input()
-	
+
 	speed -= dec_speed * delta
 	speed = clamp(speed, 0.0, max_speed)
-	
+
+	# Update pitch of engine sound based on speed.
+	var pitch = (speed * 1.6 / max_speed) + 0.4
+	$Engine.pitch_scale = pitch
+
 	move_and_slide(speed * motion)
 	pos_check()
 	# Make sure camera is always centered (and does not follow the car on the x axis)
@@ -67,6 +74,7 @@ func _physics_process(delta):
 
 func _ready():
 	_vibrate_car()
+	$Engine.play()
 
 
 func pos_check():
@@ -85,6 +93,7 @@ func _on_ObstacleDetector_body_entered(body):
 	if body.is_in_group("obstacle"):
 		speed = 0.0
 		body.queue_free()
+		$Crash.play()
 
 
 func _on_StartDetector_body_entered(body):
