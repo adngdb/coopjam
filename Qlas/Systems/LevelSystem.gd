@@ -1,16 +1,18 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var scenes_dict = {
+	"StartScreen" : "res://GUI/StartScreen/StartScreen.tscn",
+	"MenuScreen" : "res://GUI/MenuScreen/MenuScreen.tscn",
+	"1_Level" : "res://Levels/1_Level.tscn",
+	"2_Level" : "res://Levels/2_Level.tscn",
+	"3_Level" : "res://Levels/3_Level.tscn",
+}
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func change_scene_to(var scene : String):
+	get_tree().change_scene(scenes_dict[scene])
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func change_scene_to_level(var level : String):
+	get_tree().change_scene(scenes_dict[level])
+	#Add timer
