@@ -50,6 +50,7 @@ position = Vector2( 56, -3944 )
 position = Vector2( -64, -5472 )
 
 [node name="StartLine" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -32 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, -5840 )
