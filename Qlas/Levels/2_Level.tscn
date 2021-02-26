@@ -57,6 +57,9 @@ position = Vector2( 0, -10000 )
 [node name="RoadTile15" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -10832 )
 
+[node name="RoadTile16" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -11664 )
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]

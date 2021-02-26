@@ -40,6 +40,9 @@ position = Vector2( 0, -5000 )
 [node name="RoadTile8" parent="Road" instance=ExtResource( 2 )]
 position = Vector2( 0, -5840 )
 
+[node name="RoadTile10" parent="Road" instance=ExtResource( 2 )]
+position = Vector2( 0, -6672 )
+
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
@@ -141,13 +144,13 @@ rotation = -1.5708
 position = Vector2( -200, -2832 )
 
 [node name="Rock21" parent="Decoration" instance=ExtResource( 7 )]
-position = Vector2( 64, -5936 )
+position = Vector2( 112, -6624 )
 
 [node name="Rock20" parent="Decoration" instance=ExtResource( 6 )]
-position = Vector2( -72, -5952 )
+position = Vector2( -168, -6360 )
 
 [node name="Tree" parent="Decoration" instance=ExtResource( 5 )]
-position = Vector2( 392, -6296 )
+position = Vector2( -208, -7056 )
 
 [node name="Tree2" parent="Decoration" instance=ExtResource( 5 )]
 position = Vector2( -560, -4600 )
