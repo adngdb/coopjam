@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Sprites/Cars/sprite_car_blue.png" type="Texture" id=1]
 [ext_resource path="res://Objects/PlayerCar/PlayerCar.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sounds/crash.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sounds/Bomb.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Sounds/engine.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]

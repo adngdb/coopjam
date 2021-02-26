@@ -91,13 +91,13 @@ func move_lane_left():
 func _on_ObstacleDetector_body_entered(body):
 	if body.is_in_group("obstacle"):
 		speed = 0.0
+		$Crash.play()
 		var explosion = body.get_node("Explosion")
 		body.get_node("sprite_car_red").set_visible(false)
 		explosion.set_visible(true)
 		explosion.play()
 		yield(explosion, "animation_finished")
 		body.queue_free()
-		$Crash.play()
 
 	elif body.is_in_group("oil"):
 		speed = speed - max_speed / 2.0
