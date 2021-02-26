@@ -4,11 +4,9 @@ export var max_speed := 1000.0
 export var inc_speed := 150.0
 export var dec_speed := 300.0
 export var in_lane_pos := 65.0
-export var vibrate_strength := 1
 
 var speed := 0.0
 var motion = Vector2(0.0, -1.0)
-onready var TweenNode = $Tween
 
 
 func _get_input():
@@ -39,23 +37,6 @@ func _unhandled_input(event):
 			speed += inc_speed
 
 
-func _vibrate_car():
-	var randX = rand_range(-vibrate_strength, vibrate_strength)
-	var randY = rand_range(-vibrate_strength, vibrate_strength)
-	var startVector = Vector2(randX, randY)
-	var endVector = Vector2(-randX, -randY)
-	TweenNode.interpolate_method(
-		self, # Object on which to apply the tween
-		"translate", # Method to animate
-		startVector, # Start
-		endVector, # End
-		0.1, # Duration of the tween in seconds
-		Tween.TRANS_SINE, # Easing transformation
-		Tween.EASE_IN_OUT, # When to apply the easing function
-		0) # Delay
-	TweenNode.start()
-
-
 func _physics_process(delta):
 	_get_input()
 	speed -= dec_speed * delta
@@ -72,7 +53,6 @@ func _physics_process(delta):
 
 
 func _ready():
-	_vibrate_car()
 	$Engine.play()
 	GameS.car = self
 
