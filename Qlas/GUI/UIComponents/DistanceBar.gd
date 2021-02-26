@@ -1,4 +1,5 @@
 extends Control
 
 func _process(delta):
-	$ProgressBar.value = get_distance_to_finish_line()
+	var progress = GameS.get_distance_to_finish_line()/GameS.get_distance_between_lines()
+	$ProgressBar.value = progress * 100

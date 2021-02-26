@@ -74,6 +74,7 @@ func _physics_process(delta):
 func _ready():
 	_vibrate_car()
 	$Engine.play()
+	GameS.car = self
 
 
 func pos_check():
