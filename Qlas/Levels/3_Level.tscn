@@ -35,19 +35,28 @@ position = Vector2( 0, -5840 )
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 65, -736 )
+position = Vector2( 70, -480 )
 
 [node name="RedCar2" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 64, -1864 )
 
 [node name="RedCar3" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -64, -2432 )
+position = Vector2( 60, -2440 )
 
 [node name="RedCar4" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 56, -3944 )
+position = Vector2( -68, -3096 )
 
 [node name="RedCar5" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( -64, -5472 )
+
+[node name="RedCar6" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -66, -1152 )
+
+[node name="RedCar7" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( -68, -3928 )
+
+[node name="RedCar8" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 68, -4456 )
 
 [node name="StartLine" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -32 )

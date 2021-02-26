@@ -5,7 +5,7 @@
 [ext_resource path="res://Objects/Obstacles/RedCar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/RoadTile/FinishLine.tscn" type="PackedScene" id=4]
 
-[node name="LevelTest" type="Node2D"]
+[node name="1_Level" type="Node2D"]
 
 [node name="Road" type="Node2D" parent="."]
 
@@ -35,13 +35,10 @@ position = Vector2( 0, -5840 )
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="RedCar" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 65, -736 )
-
-[node name="RedCar2" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 64, -1864 )
+position = Vector2( 64, -1416 )
 
 [node name="RedCar3" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( -64, -2432 )
+position = Vector2( -64, -2880 )
 
 [node name="RedCar4" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 56, -3944 )
