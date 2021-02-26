@@ -10,9 +10,7 @@ onready var score_boxes = [
 func _ready():
 #Ne fontionne pas très bien pour X raisons ...
 #	update_scores()
-	score_boxes[0].text = "Score : " + str(GameS.scores[0])
-	score_boxes[1].text = "Score : " + str(GameS.scores[1])
-	score_boxes[2].text = "Score : " + str(GameS.scores[2])
+	display_scores()
 
 func _on_Button1_pressed():
 	LevelS.change_scene_to_level(0)
@@ -25,6 +23,11 @@ func _on_Button2_pressed():
 func _on_Button3_pressed():
 	LevelS.change_scene_to_level(2)
 
+
+func display_scores():
+	score_boxes[0].text = "Score : " + str(GameS.scores[0])
+	score_boxes[1].text = "Score : " + str(GameS.scores[1])
+	score_boxes[2].text = "Score : " + str(GameS.scores[2])
 
 #func update_scores():
 #	var i = 0

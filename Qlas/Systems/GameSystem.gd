@@ -31,6 +31,7 @@ func start_level():
 func finish_level():
 	scores[current_level] = stepify(time_in_level, 0.01)
 	chrono_on = false
+	SaveS.save_game()
 
 
 # Return distance between car and finish line, in pixels.
