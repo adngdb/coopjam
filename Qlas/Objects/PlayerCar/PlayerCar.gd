@@ -61,6 +61,7 @@ func _ready():
 	fix_camera_x_position()
 
 	GameS.car = self
+	GameS.init_level()
 	running = false
 
 	$LevelStartAnim.start($Camera2D)

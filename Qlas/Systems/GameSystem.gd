@@ -17,10 +17,13 @@ var car : KinematicBody2D = null
 var finish_line : KinematicBody2D = null
 var start_line : KinematicBody2D = null
 
-# Initialize the timer when starting a level.
-func start_level():
+func init_level():
 	current_level = LevelS.current_level
 	time_in_level = 0.0
+
+
+# Initialize the timer when starting a level.
+func start_level():
 	chrono_on = true
 
 
