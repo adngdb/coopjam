@@ -2,6 +2,7 @@ extends Sprite
 
 
 onready var tween = $Tween
+onready var colors = [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 
 func _ready():
 	_glow()
@@ -9,12 +10,18 @@ func _ready():
 
 func _glow():
 	tween.interpolate_property(
-		self, # Object on which to apply the tween
-		"modulate", # Property to animate
-		Color(1, 1, 1, 1), # Start
-		Color(1, 1, 1, 0), # End
-		1, # Duration of the tween in seconds
-		Tween.TRANS_CUBIC, # Easing transformation
-		Tween.EASE_IN_OUT, # When to apply the easing function
-		0) # Delay
+		self,
+		"modulate",
+		colors[0],
+		colors[1],
+		0.6,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT,
+		0
+	)
 	tween.start()
+
+
+func _on_Tween_tween_all_completed():
+	colors.invert()
+	_glow()
