@@ -30,7 +30,7 @@ func _get_input():
 		speed += inc_speed
 
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventScreenTouch:
 		if not event.is_pressed(): # Touch release
 			var viewport_width = get_viewport().get_visible_rect().size.x
