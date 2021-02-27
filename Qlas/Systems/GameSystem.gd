@@ -10,7 +10,7 @@ var scores := [
 
 var current_level := 0
 var time_in_level := 0.0
-var chrono_on = false
+var chrono_on := false
 
 
 var car : KinematicBody2D = null
@@ -22,14 +22,13 @@ func start_level():
 	current_level = LevelS.current_level
 	time_in_level = 0.0
 	chrono_on = true
-	
-	if (!scores[current_level]):
-		scores[current_level] = []
 
 
 # Store the time used to run to the finish line.
 func finish_level():
-	scores[current_level] = stepify(time_in_level, 0.01)
+	var final_score = stepify(time_in_level, 0.01)
+	if (scores[current_level] == 0.0 || scores[current_level] > final_score):
+		scores[current_level] = final_score
 	chrono_on = false
 	SaveS.save_game()
 
